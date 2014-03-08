@@ -12,10 +12,26 @@ h1.welcome {
   text-transform: uppercase;
   font-size: 78px;
   font-weight: 200;
+  line-height: 80%;
 }
 
 p.welcome {
   font-size: 42px;
   font-weight: 300;
   text-transform: capitalize;
+}
+
+form.name input {
+  border: 0;
+  box-shadow: none;
+}
+
+form.name button {
+  color: #fff;
+  background: #000;
+}
+
+.illustration {
+  position: absolute;
+  bottom: -200px;
 }
