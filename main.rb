@@ -4,16 +4,10 @@ require 'sinatra'
 set :sessions, true
 
 get '/' do
-  "<p>Hi Nikia!</p>"
+  erb :get_name
 end
 
-get '/nikiashaw' do
-  erb :nstemplate
-end
 
-get '/nested-template' do
-  erb :"/stuff/nested"
-end
 
 
 
