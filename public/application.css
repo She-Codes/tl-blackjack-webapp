@@ -8,30 +8,61 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.navbar-fixed-top {
+  display: none;
+}
+
+.welcome {
+  text-align: center;
+}
+
 h1.welcome {
   text-transform: uppercase;
-  font-size: 78px;
+  font-size: 88px;
   font-weight: 200;
-  line-height: 80%;
+  line-height: 91%;
 }
 
 p.welcome {
   font-size: 42px;
   font-weight: 300;
   text-transform: capitalize;
+  padding: 46px 0 16px 0;
+}
+
+form.name {
+  text-align: center;
 }
 
 form.name input {
   border: 0;
   box-shadow: none;
+  padding: 14px 18px;
+  font-size: 25px;
+  width: 352px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 form.name button {
   color: #fff;
-  background: #000;
+  background: #C0491B;
+  font-family: 'Source Sans Pro', sans-serif;
+  border: 0;
+  font-weight: 300;
+  font-size: 28px;
+  padding: 14px;
+  text-transform: uppercase;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .illustration {
   position: absolute;
-  bottom: -200px;
+  bottom: 0;
+  left: 50%;
+  margin-left: -400px;
+  width: 800px;
+  height: 243px;
+  background: url('http://d13yacurqjgara.cloudfront.net/users/42865/screenshots/792030/queenofhearts.png') no-repeat top center;
 }
