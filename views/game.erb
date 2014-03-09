@@ -1,2 +1,21 @@
-<%=session[:player_hand]%>
-<%=session[:dealer_hand]%>
+<p>Player Cards:</p>
+<ul>
+  <% session[:player_hand].each do |card| %>
+    <li><%= card %></li>
+  <%end%>
+</ul>
+
+<p>Dealer Cards:</p>
+<ul>
+  <% session[:dealer_hand].each do |card| %>
+    <li><%= card %>
+  <%end%>
+</ul>
+
+<form method="post">
+  <button name="hit" value="hit" formaction="/hit">Hit</button>
+  <button name="stay" value="stay" formaction="/stay">Stay</button>
+</form>
+
+<p><%= session[:hit_or_stay] %></p>
+

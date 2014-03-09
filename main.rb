@@ -44,6 +44,22 @@ get '/game' do
   erb :game
 end
 
+post '/hit' do
+  session[:hit_or_stay] = params[:hit]
+  # if player_total > 21
+  #   player busted
+  # elsif player_total == 21
+  #   player wins
+  # end
+  # erb :game
+end
+
+post '/stay' do
+  session[:hit_or_stay] = params[:stay]
+  # dealer turn
+  erb :game
+end
+
 
 
 
