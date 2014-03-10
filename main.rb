@@ -4,6 +4,40 @@ require 'pry'
 
 set :sessions, true
 
+helpers do
+  def get_total(hand)
+    total = 0
+    arr = hand.map{|element| element[1]}
+    arr.each do |value|
+      if value == 'ace'
+        total < 11 ? total += 11 : total += 1
+      else
+        total += (value.to_i == 0 ? 10 : value)
+      end
+    end
+    total
+  end
+
+  def deal_card(hand, deck)
+    hand << deck.shift
+  end
+
+  def initial_deal(hand, deck)
+    2.times do
+      deal_card(hand, deck)
+    end
+  end 
+
+  # def card_image(card)
+  #   '<img src="/images/cards/'+<%= card[0] %>+'_'+<%= card[1] %>+'.jpg">'
+  # end
+
+end
+
+before do 
+  @show_buttons = true
+end
+
 get '/' do
   # session.delete(:player_name)
   if session[:player_name]
@@ -29,34 +63,31 @@ get '/game' do
   session[:player_hand] = []
   session[:dealer_hand] = []
 
-  def deal_card(hand, deck)
-    hand << deck.shift
-  end
-
-  def initial_deal (hand, deck)
-    2.times do
-      deal_card(hand, deck)
-    end
-  end
-
   initial_deal(session[:player_hand], session[:deck])
   initial_deal(session[:dealer_hand], session[:deck])
   erb :game
 end
 
-post '/hit' do
-  session[:hit_or_stay] = params[:hit]
-  # if player_total > 21
-  #   player busted
-  # elsif player_total == 21
-  #   player wins
-  # end
-  # erb :game
+post '/game/player/hit' do
+  deal_card(session[:player_hand], session[:deck])
+  if get_total(session[:player_hand]) > 21
+    @show_buttons = false
+    @error = "Sorry, looks like you busted."
+  elsif get_total(session[:player_hand]) == 21
+    @show_buttons = false
+    @success = "You've got Blackjack!"
+  end
+  
+  erb :game
 end
 
-post '/stay' do
-  session[:hit_or_stay] = params[:stay]
+post '/game/player/stay' do
+  @show_buttons = false
+  @success = "You've decided to stay"
   # dealer turn
+  # if get_total(session[:dealer_hand]) < 17
+  #   deal_card(session[:dealer_hand], session[:deck])
+  # end
   erb :game
 end
 
