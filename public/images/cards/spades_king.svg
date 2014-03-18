@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="58.424px" height="81.338px" viewBox="0 0 58.424 81.338" style="enable-background:new 0 0 58.424 81.338;"
+	 xml:space="preserve">
+<g>
+	<g>
+		<path style="fill-rule:evenodd;clip-rule:evenodd;fill:#FAFAFA;" d="M58.109,75.623c0,2.971-2.43,5.4-5.398,5.4H5.713
+			c-2.969,0-5.398-2.43-5.398-5.4V5.715c0-2.971,2.43-5.4,5.398-5.4h46.998c2.969,0,5.398,2.43,5.398,5.4V75.623z"/>
+		<path style="fill:none;stroke:#CCCCCC;stroke-width:0.6299;stroke-miterlimit:3.8637;" d="M58.109,75.623
+			c0,2.971-2.43,5.4-5.398,5.4H5.713c-2.969,0-5.398-2.43-5.398-5.4V5.715c0-2.971,2.43-5.4,5.398-5.4h46.998
+			c2.969,0,5.398,2.43,5.398,5.4V75.623z"/>
+	</g>
+	<g>
+		<path style="fill:#171717;" d="M11.278,17.77l-0.884,1.664v5.59h-2.86V6.822h2.86v7.93l3.744-7.93h2.859l-3.978,8.113
+			l3.978,10.088h-2.938L11.278,17.77z"/>
+	</g>
+	<g>
+		<path style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6537;stroke-miterlimit:10;" d="M44.08,46.813
+			c0,0,6.578,1.451,7.047-4.139c0.293-3.494-2.541-6.072-5.859-5.344l0.143,3.176l2.494,1.68l0.627,1.412l-1.025,1.844L44.08,46.813
+			z"/>
+		<g>
+			<defs>
+				<polygon id="XMLID_53_" points="27.936,49.666 9.748,62.109 6.472,75.514 9.9,75.514 52.247,75.514 52.247,56.76 47.201,48.271 
+					37.24,43.717 				"/>
+			</defs>
+			<use xlink:href="#XMLID_53_"  style="overflow:visible;"/>
+			<clipPath id="XMLID_2_">
+				<use xlink:href="#XMLID_53_"  style="overflow:visible;"/>
+			</clipPath>
+			<g style="clip-path:url(#XMLID_2_);">
+				<defs>
+					<polygon id="XMLID_56_" points="43.688,48.291 23.16,61.955 25.536,42.813 41.075,40.189 45.541,42.055 					"/>
+				</defs>
+				<use xlink:href="#XMLID_56_"  style="overflow:visible;fill:#F7CC10;"/>
+				<clipPath id="XMLID_3_">
+					<use xlink:href="#XMLID_56_"  style="overflow:visible;"/>
+				</clipPath>
+				<g style="clip-path:url(#XMLID_3_);">
+					<polygon style="fill:#B32825;stroke:#000000;stroke-width:0.5788;stroke-miterlimit:10;" points="40.405,46.203 27.744,54.568 
+						29.11,39.711 38.879,40.541 					"/>
+				</g>
+				<use xlink:href="#XMLID_56_"  style="overflow:visible;fill:none;stroke:#020202;stroke-width:0.4345;stroke-miterlimit:10;"/>
+			</g>
+			<g style="clip-path:url(#XMLID_2_);">
+				<defs>
+					<polygon id="XMLID_55_" points="12.307,77.697 50.977,48.918 55.645,56.574 22.62,81.697 					"/>
+				</defs>
+				<use xlink:href="#XMLID_55_"  style="overflow:visible;fill:#F7CC10;"/>
+				<clipPath id="XMLID_4_">
+					<use xlink:href="#XMLID_55_"  style="overflow:visible;"/>
+				</clipPath>
+				<polygon style="clip-path:url(#XMLID_4_);fill:#B32825;stroke:#000000;stroke-width:0.5788;stroke-miterlimit:10;" points="
+					18.709,82.611 57.497,52.986 54.256,48.74 8.324,82.789 				"/>
+				<use xlink:href="#XMLID_55_"  style="overflow:visible;fill:none;stroke:#020202;stroke-width:0.5508;stroke-miterlimit:10;"/>
+			</g>
+			<g style="clip-path:url(#XMLID_2_);">
+				<defs>
+					<polygon id="XMLID_54_" points="17.492,52.58 13.602,77.877 18.987,77.877 22.964,50.498 					"/>
+				</defs>
+				<use xlink:href="#XMLID_54_"  style="overflow:visible;fill:#FFFFFF;"/>
+				<clipPath id="XMLID_5_">
+					<use xlink:href="#XMLID_54_"  style="overflow:visible;"/>
+				</clipPath>
+				<polygon style="clip-path:url(#XMLID_5_);fill:#B32825;stroke:#000000;stroke-width:0.5788;stroke-miterlimit:10;" points="
+					19.543,51.146 15.298,77.516 21.174,77.516 25.514,48.977 				"/>
+				<polygon style="clip-path:url(#XMLID_5_);fill:#FFFFFF;stroke:#000000;stroke-width:0.5508;stroke-miterlimit:10;" points="
+					21.179,51.146 16.932,77.516 22.81,77.516 27.148,48.977 				"/>
+				<use xlink:href="#XMLID_54_"  style="overflow:visible;fill:none;stroke:#000000;stroke-width:0.5508;stroke-miterlimit:10;"/>
+			</g>
+			<use xlink:href="#XMLID_53_"  style="overflow:visible;fill:none;stroke:#000000;stroke-width:0.5788;stroke-miterlimit:10;"/>
+		</g>
+		<path style="fill:#FFFFFF;stroke:#000000;stroke-width:0.5508;stroke-miterlimit:10;" d="M25.164,30.945c0,0,0,3.121,0,3.787
+			l-2.508,7.484h2.681v7.402c0,0,10.925,2.564,14.159-5.799V28.463C39.496,28.463,27.822,28.768,25.164,30.945z"/>
+		<g>
+			<defs>
+				<path id="XMLID_52_" d="M47.21,32.355c0,0-1.856,3.568,1.138,7.242l0.678,6.363l-5.555,2.096l-9.588-5.652l-1.422-11.701
+					l9.536,0.16L47.21,32.355z"/>
+			</defs>
+			<use xlink:href="#XMLID_52_"  style="overflow:visible;fill:#FFFFFF;"/>
+			<clipPath id="XMLID_6_">
+				<use xlink:href="#XMLID_52_"  style="overflow:visible;"/>
+			</clipPath>
+			<path style="clip-path:url(#XMLID_6_);fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" d="
+				M36.145,29.104c-0.211,4.449-2.012,15.938,15.291,17.65c0,0-1.015-4.645-0.238-3.354c0.326,0.555-13.73,0.912-12.387-12.896
+				C38.811,30.504,36.507,21.637,36.145,29.104z"/>
+			<path style="clip-path:url(#XMLID_6_);fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" d="M38.65,28.334
+				c-0.008,5.348-1.515,14.316,13.051,16.219c0,0-0.667-4.221,0.01-2.979c0.239,0.436-11.477,1.537-10.35-11.156
+				C41.361,30.418,38.662,21.174,38.65,28.334z"/>
+			<path style="clip-path:url(#XMLID_6_);fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" d="M44.59,30.424
+				c0,0-2.568,9.949,6.786,8.982"/>
+			<use xlink:href="#XMLID_52_"  style="overflow:visible;fill:none;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;"/>
+		</g>
+		<path style="fill:none;stroke:#DD5817;stroke-width:0.5426;stroke-miterlimit:10;" d="M39.938,29.553"/>
+		<ellipse style="fill:#171717;" cx="27.869" cy="37.279" rx="0.735" ry="0.744"/>
+		<path style="fill:#171717;" d="M25.289,44.117c1.53-0.127,3.709,0.73,3.709,0.73c0.813,0.633,0.231-1.871-3.289-1.979
+			C25.098,42.977,25.289,44.117,25.289,44.117z"/>
+		
+			<line style="fill:none;stroke:#000000;stroke-width:0.5508;stroke-miterlimit:10;" x1="24.504" y1="42.217" x2="26.645" y2="42.217"/>
+		<g>
+			<defs>
+				<path id="XMLID_51_" d="M6.173,61.922h6.997c0,0,1.811,9.191-6.997,13.557V61.922z"/>
+			</defs>
+			<use xlink:href="#XMLID_51_"  style="overflow:visible;fill:#FFFFFF;"/>
+			<clipPath id="XMLID_7_">
+				<use xlink:href="#XMLID_51_"  style="overflow:visible;"/>
+			</clipPath>
+			<polyline style="clip-path:url(#XMLID_7_);fill:#FFFFFF;stroke:#000000;stroke-width:0.6691;stroke-miterlimit:10;" points="
+				4.889,64.846 13.459,64.846 13.459,68.352 5.111,68.352 5.432,72.076 12.484,72.076 11.377,75.057 4.889,75.082 			"/>
+			<use xlink:href="#XMLID_51_"  style="overflow:visible;fill:none;stroke:#000000;stroke-width:0.5508;stroke-miterlimit:10;"/>
+		</g>
+		
+			<line style="fill:none;stroke:#000000;stroke-width:0.5401;stroke-miterlimit:10;" x1="27.644" y1="45.633" x2="25.614" y2="45.584"/>
+		<path style="fill:#F7CC10;stroke:#020202;stroke-width:0.5508;stroke-miterlimit:10;" d="M43.021,29.689"/>
+		<path style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" d="M29.422,27.514
+			c0,0-2.302,17.303,13.557,21.285c1.896,0.477,7.67,0.818,8.186-4.707c0.334-3.566-3.48-5.85-6.416-5.246l0.139,2.918
+			c0,0,3.182-0.438,3.072,2.352c0,0-0.324,2.412-3.799,1.805c0,0-13.046-2.092-11.752-18.543L29.422,27.514z"/>
+		<path style="fill:#020202;stroke:#000000;stroke-width:0.5357;stroke-miterlimit:10;" d="M21.962,24.539l3.067,8.572
+			c0,0,10.584-2.752,22.256-0.264l2.109-7.779C49.395,25.068,38.255,19.373,21.962,24.539z"/>
+		<path style="fill:#B32825;stroke:#000000;stroke-width:0.5508;stroke-miterlimit:10;" d="M38.672,23.041"/>
+		<polygon style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" points="23.578,73.992 26.76,73.992 
+			29.863,71.76 26.66,71.76 		"/>
+		<polygon style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" points="28.49,70.09 31.672,70.09 
+			34.775,67.859 31.572,67.859 		"/>
+		<polygon style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" points="33.618,66.398 36.797,66.398 
+			39.904,64.168 36.701,64.168 		"/>
+		<polygon style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" points="38.531,62.77 41.713,62.77 
+			44.816,60.539 41.612,60.539 		"/>
+		<polygon style="fill:#FFFFFF;stroke:#000000;stroke-width:0.6419;stroke-miterlimit:10;" points="43.58,59.006 46.482,59.006 
+			49.31,57.049 48.33,55.41 		"/>
+		<polygon style="stroke:#020202;stroke-width:0.4882;stroke-miterlimit:10;" points="38.873,72.967 49.896,64.982 49.896,72.967 		
+			"/>
+		<polygon style="fill:#F7CC10;stroke:#020202;stroke-width:0.4712;stroke-miterlimit:10;" points="42.589,71.605 48.531,67.506 
+			48.531,71.605 		"/>
+		
+			<ellipse style="fill:#FFFFFF;stroke:#000000;stroke-width:0.3725;stroke-miterlimit:10;" cx="43.579" cy="51.342" rx="0.835" ry="0.818"/>
+		
+			<ellipse style="fill:#FFFFFF;stroke:#000000;stroke-width:0.3725;stroke-miterlimit:10;" cx="40.05" cy="54.016" rx="0.835" ry="0.818"/>
+		<path style="fill:#FFFFFF;stroke:#000000;stroke-width:0.3725;stroke-miterlimit:10;" d="M37.281,56.715
+			c0,0.449-0.375,0.816-0.835,0.816s-0.833-0.367-0.833-0.816c0-0.455,0.373-0.822,0.833-0.822S37.281,56.26,37.281,56.715z"/>
+		
+			<ellipse style="fill:#FFFFFF;stroke:#000000;stroke-width:0.3725;stroke-miterlimit:10;" cx="32.364" cy="59.934" rx="0.833" ry="0.82"/>
+		
+			<ellipse style="fill:#FFFFFF;stroke:#000000;stroke-width:0.3725;stroke-miterlimit:10;" cx="28.075" cy="62.967" rx="0.835" ry="0.818"/>
+		<path style="fill:#FFFFFF;stroke:#000000;stroke-width:0.3725;stroke-miterlimit:10;" d="M24.824,66.188
+			c0,0.455-0.373,0.82-0.836,0.82c-0.457,0-0.834-0.365-0.834-0.82c0-0.451,0.377-0.818,0.834-0.818
+			C24.451,65.369,24.824,65.736,24.824,66.188z"/>
+		<g>
+			<defs>
+				<path id="XMLID_50_" d="M11.719,45.109l-1.828-3.998l-1.98,3.998c0,0-0.192,0.57-0.192,0.898c0,0.119,0,15.631,0,15.631h4.175
+					c0-11.451,0-10.881,0-15.631C11.893,45.68,11.719,45.109,11.719,45.109z"/>
+			</defs>
+			<use xlink:href="#XMLID_50_"  style="overflow:visible;"/>
+			<clipPath id="XMLID_8_">
+				<use xlink:href="#XMLID_50_"  style="overflow:visible;"/>
+			</clipPath>
+			<path style="clip-path:url(#XMLID_8_);fill:#FFFFFF;stroke:#020202;stroke-width:0.6096;stroke-miterlimit:10;" d="
+				M13.807,36.652l-1.828-5.947l-1.98,5.947c0,0-0.192,0.65-0.192,1.023c0-0.885,0,0.139,0,19.504h4.175c0-14.088,0-14.088,0-18.48
+				C13.98,38.326,13.807,36.652,13.807,36.652z"/>
+			<use xlink:href="#XMLID_50_"  style="overflow:visible;fill:none;stroke:#020202;stroke-width:0.5708;stroke-miterlimit:10;"/>
+		</g>
+		<polygon style="fill:#171717;" points="29.432,50.092 29.305,44.693 28.839,44.367 28.844,47.023 25.337,47.023 25.337,49.619 		
+			"/>
+		<path style="fill:#171717;" d="M33.202,42.613c0,0,0.058,1.295-1.43,3.322c-1.585,2.158-2.556,2.121-2.556,2.121v1.701
+			c0,0,5.088-0.43,5.91-4.822"/>
+		<path style="fill:#F7CC10;stroke:#020202;stroke-width:0.4345;stroke-miterlimit:10;" d="M51.861,19.514
+			c0.041-1.014-0.749-1.873-1.764-1.912c-1.016-0.041-1.871,0.75-1.912,1.764c-0.021,0.51,0.166,0.977,0.486,1.322l-1.502,2.766
+			c-0.857-0.209-1.869-0.428-3.018-0.633l-0.205-2.906c0.686-0.305,1.146-1.012,1.09-1.803c-0.072-1.014-0.953-1.777-1.965-1.705
+			c-1.015,0.07-1.777,0.951-1.705,1.965c0.035,0.506,0.273,0.951,0.63,1.26l-1.107,2.723c-1.089-0.121-2.251-0.213-3.476-0.268
+			l-0.641-2.979c0.639-0.398,0.994-1.162,0.827-1.941c-0.214-0.99-1.192-1.625-2.186-1.412c-0.993,0.215-1.626,1.193-1.413,2.186
+			c0.107,0.498,0.406,0.904,0.801,1.16l-0.739,2.953c-1.03,0.025-2.093,0.078-3.183,0.176l-1.117-2.75
+			c0.355-0.309,0.594-0.754,0.63-1.26c0.071-1.014-0.69-1.895-1.705-1.965c-1.013-0.072-1.893,0.691-1.966,1.705
+			c-0.057,0.793,0.404,1.498,1.091,1.803l-0.203,2.867c-1.151,0.182-2.327,0.41-3.519,0.695l-1.52-2.713
+			c0.314-0.35,0.496-0.82,0.468-1.33c-0.055-1.014-0.921-1.793-1.937-1.736c-1.014,0.055-1.792,0.922-1.736,1.938
+			c0.043,0.793,0.586,1.436,1.307,1.654l3.479,9.703c0,0,12.922-2.9,23.757-0.018l2.667-9.635
+			C51.294,20.961,51.829,20.309,51.861,19.514z"/>
+		<polygon style="stroke:#020202;stroke-width:0.3771;stroke-miterlimit:10;" points="14.375,55.893 14.375,57.531 13.322,57.531 
+			8.908,57.531 6.043,57.531 6.043,55.893 8.967,55.893 13.323,55.893 		"/>
+		<path style="stroke:#020202;stroke-width:0.5708;stroke-miterlimit:10;" d="M12.502,57.531"/>
+		<path style="fill:#F7CC10;stroke:#020202;stroke-width:0.4975;stroke-miterlimit:10;" d="M23.818,25.248l1.371,3.611
+			c0,0,2.282-0.641,5.138-0.873l-0.362-3.801"/>
+		<path style="fill:#F7CC10;stroke:#020202;stroke-width:0.4975;stroke-miterlimit:10;" d="M47.225,24.906l-0.958,3.557
+			c0,0-3.42-0.721-5.745-0.914l0.084-3.447"/>
+		<polyline style="fill:#F7CC10;stroke:#020202;stroke-width:0.4975;stroke-miterlimit:10;" points="32.049,24.115 32.377,27.721 
+			38.442,27.549 38.393,24.043 		"/>
+	</g>
+	<path style="fill:#171717;" d="M11.759,27.328c0,0-5.236,4.922-5.35,7.521c0,1.441,1.215,2.613,2.715,2.613
+		c0.645,0,1.232-0.217,1.695-0.578c-0.125,0.965-0.334,2.119-0.641,2.391h3.16c-0.26-0.229-0.496-1.539-0.625-2.379
+		c0.461,0.354,1.043,0.566,1.678,0.566c1.498,0,2.715-1.172,2.715-2.613C16.993,32.25,11.759,27.328,11.759,27.328z"/>
+</g>
+</svg>

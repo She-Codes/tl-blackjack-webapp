@@ -28,9 +28,9 @@ helpers do
     end
   end 
 
-  # def card_image(card)
-  #   '<img src="/images/cards/'+<%= card[0] %>+'_'+<%= card[1] %>+'.jpg">'
-  # end
+  def card_image(card)
+    "<img src='/images/cards/#{card[0]}_#{card[1]}.svg' class='card'>"
+  end
 
 end
 
@@ -43,15 +43,19 @@ get '/' do
   if session[:player_name]
     redirect '/game'
   else
-    erb :get_name
+    redirect '/get_name'
   end
 end
 
-# get '/get_name' do
-#   erb :get_name
-# end
+get '/get_name' do
+  erb :get_name
+end
 
-post '/' do
+post '/get_name' do
+  if params[:player_name].empty?
+    @error = "You forgot to enter a name."
+    halt erb :get_name
+  end
   session[:player_name] = params[:player_name]
   redirect '/game'
 end
@@ -65,17 +69,21 @@ get '/game' do
 
   initial_deal(session[:player_hand], session[:deck])
   initial_deal(session[:dealer_hand], session[:deck])
+  @initial_deal = true
   erb :game
 end
 
 post '/game/player/hit' do
   deal_card(session[:player_hand], session[:deck])
-  if get_total(session[:player_hand]) > 21
-    @show_buttons = false
-    @error = "Sorry, looks like you busted."
-  elsif get_total(session[:player_hand]) == 21
+  player_total = get_total(session[:player_hand])
+  
+  if player_total == 21
     @show_buttons = false
     @success = "You've got Blackjack!"
+  elsif player_total > 21
+    @show_buttons = false
+    @error = "Sorry, looks like you busted."
+  
   end
   
   erb :game

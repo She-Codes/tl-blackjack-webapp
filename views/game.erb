@@ -1,23 +1,67 @@
-<p>Player Cards:</p>
-<ul>
-  <% session[:player_hand].each do |card| %>
-    <li><%= card %></li>
-  <%end%>
-</ul>
+<div class="score-container">
+  <p>Games Won:</p>
+  <div class="score">
+    <div class="player">
+      <div class="icon"></div>
+      <p>Player:<span>0</span></p>
+    </div><!--end .player-->
 
-<p>Dealer Cards:</p>
-<ul>
+    <div class="dealer">
+      <div class="icon"></div>
+      <p>Dealer:<span>0</span></p>
+    </div><!--end .player-->
+  </div><!--end .score-->
+</div><!--end .score-container-->
+
+<h1 class="greeting"><%= session[:player_name] %>, let's play!</h1>
+
+<div class="dealer-container">
   <% session[:dealer_hand].each do |card| %>
-    <li><%= card %></li>
+    <%= card_image(card) %>
   <%end%>
-</ul>
+</div><!--end .dealer-container-->
 
-<% if @show_buttons %>
-  <form method="post">
-    <button name="hit" value="hit" formaction="/game/player/hit">Hit</button>
-    <button name="stay" value="stay" formaction="/game/player/stay">Stay</button>
-  </form>
-<% end %>
+<div class="player-container">
+  <% if @initial_deal %>
+    <% session[:player_hand].each do |card| %>
+      <div class="flip-container initial animated slideInLeft">
+        <div class="flipper">
+          <div class="back">
+            <img src="/images/cards/cover_yellow.svg" class="card">
+          </div><!--end .back-->
+          <div class="front">
+            <%= card_image(card) %>
+          </div><!--end .front-->
+        </div><!--end .flipper-->
+      </div><!--end .flip-container-->
+    <%end%>
+  <% else %>
+    <% number_of_cards_face_up = session[:player_hand].length - 1 %>
+    <% session[:player_hand].slice(0, number_of_cards_face_up).each do |card| %>
+      <div class="card-wrapper"><%= card_image(card) %></div>
+    <% end %>
+    <div class="flip-container animated slideInLeft">
+        <div class="flipper">
+          <div class="back">
+            <img src="/images/cards/cover_yellow.svg" class="card">
+          </div><!--end .back-->
+          <div class="front">
+            <%= card_image(session[:player_hand].last) %>
+          </div><!--end .front-->
+        </div><!--end .flipper-->
+      </div><!--end .flip-container-->
+  <% end %>
+</div><!--end .player-container-->
+<p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
+<p>What would you like to do?</p>
+<div class="button-container">
+  <% if @show_buttons %>
+    <form method="post">
+      <button name="hit" value="hit" formaction="/game/player/hit">Hit</button>
+      <button name="stay" value="stay" formaction="/game/player/stay">Stay</button>
+    </form>
+  <% end %>
+</div><!--end .button-container-->
 
 
 

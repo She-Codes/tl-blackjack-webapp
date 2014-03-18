@@ -12,6 +12,10 @@ body {
   display: none;
 }
 
+/*
+--- FORM PAGE
+*/
+
 .welcome {
   text-align: center;
 }
@@ -66,3 +70,153 @@ form.name button {
   height: 243px;
   background: url('http://d13yacurqjgara.cloudfront.net/users/42865/screenshots/792030/queenofhearts.png') no-repeat top center;
 }
+
+/*
+--- GAME PAGE
+*/
+
+.card {
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+.card {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+.player-container, .dealer-container {
+  overflow: auto;
+}
+
+.dealer-container .card {
+  width: 100px;
+}
+
+.player-container .card {
+  width: 134px;
+}
+
+h1.greeting {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 55px;
+  font-weight: 200;
+}
+
+.score-container {
+  margin: -50px auto 0;
+  width: 239px;
+}
+
+.score-container > p {
+  font-size: 21px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.score {
+  overflow: auto;
+}
+
+.score div {
+  float: left;
+  width: 50%;
+  padding-top: 26px;
+  position: relative;
+}
+
+.score .dealer {
+  text-align: right;
+}
+
+.score .icon {
+  width: 32px;
+  height: auto;
+  position: absolute;
+}
+
+.player .icon {
+  background: url(../images/clubs.svg) no-repeat;
+  background-size: 23px auto;
+  top: 3%;
+  left: 28%;
+}
+
+.dealer .icon {
+  background: url(../images/bowtie.svg) no-repeat;
+  left: 46%;
+  top: 0;
+}
+
+.score p {
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.score span {
+  padding-left: 20px;
+  font-size: 26px;
+  color: #C24728;
+}
+
+.initial + .initial {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.flip-container, .card-wrapper {
+  float: left;
+}
+
+.flip-container {
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+.flip-container.turn-over .flipper {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.dealer-container .flip-container, .dealer-container .flipper, .dealer-container .front, .dealer-container .back {
+  width: 100px;
+  height: 139px;
+}
+
+.player-container .flip-container, .player-container .flipper, .player-container .front, .player-container .back {
+  width: 134px;
+  height: 187px;
+}
+
+.flipper {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.back {
+  z-index: 2;
+}
+
