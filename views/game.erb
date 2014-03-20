@@ -14,14 +14,43 @@
 </div><!--end .score-container-->
 
 <div class="dealer-container">
-  <% session[:dealer_hand].each do |card| %>
-    <%= card_image(card) %>
-  <%end%>
+  <% if @initial_deal %>
+    <div class="card-wrapper animated slideInLeft initial">
+      <img src="/images/cards/cover_yellow.svg" class="card">
+    </div><!--end .card-wrapper-->
+    <div class="flip-container initial animated slideInLeft">
+        <div class="flipper">
+          <div class="back">
+            <img src="/images/cards/cover_yellow.svg" class="card">
+          </div><!--end .back-->
+          <div class="front">
+            <%= card_image(session[:dealer_hand][1]) %>
+          </div><!--end .front-->
+        </div><!--end .flipper-->
+      </div><!--end .flip-container-->
+  <% else %>
+    <div class="card-wrapper">
+      <img src="/images/cards/cover_yellow.svg" class="card">
+    </div><!--end .back-->
+    <% number_of_cards_face_up = session[:dealer_hand].length - 1 %>
+    <% session[:dealer_hand].slice(1, number_of_cards_face_up).each do |card| %>
+      <div class="flip-container animated slideInLeft">
+        <div class="flipper">
+          <div class="back">
+            <img src="/images/cards/cover_yellow.svg" class="card">
+          </div><!--end .back-->
+          <div class="front">
+            <%= card_image(session[:player_hand].last) %>
+          </div><!--end .front-->
+        </div><!--end .flipper-->
+      </div><!--end .flip-container-->
+    <% end %>
+  <% end %>
 </div><!--end .dealer-container-->
 
 <div class="message">
   <% if @message %>
-    <h1 class="animated slideInLeft"><%= @message %></h1>
+    <h1 class="animated fadeIn"><%= @message %></h1>
   <% else %>
     <h1 class="greeting"><%= session[:player_name] %>, let's play!</h1>
   <% end %>
@@ -50,15 +79,15 @@
       <div class="card-wrapper"><%= card_image(card) %></div>
     <% end %>
     <div class="flip-container animated slideInLeft">
-        <div class="flipper">
-          <div class="back">
-            <img src="/images/cards/cover_yellow.svg" class="card">
-          </div><!--end .back-->
-          <div class="front">
-            <%= card_image(session[:player_hand].last) %>
-          </div><!--end .front-->
-        </div><!--end .flipper-->
-      </div><!--end .flip-container-->
+      <div class="flipper">
+        <div class="back">
+          <img src="/images/cards/cover_yellow.svg" class="card">
+        </div><!--end .back-->
+        <div class="front">
+          <%= card_image(session[:player_hand].last) %>
+        </div><!--end .front-->
+      </div><!--end .flipper-->
+    </div><!--end .flip-container-->
   <% end %>
 </div><!--end .player-container-->
 <p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
