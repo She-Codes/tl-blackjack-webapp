@@ -3,7 +3,7 @@
   <div class="score">
     <div class="player">
       <div class="icon"></div>
-      <p>Player:<span>0</span></p>
+      <p><%= session[:player_name] %>:<span>0</span></p>
     </div><!--end .player-->
 
     <div class="dealer">
@@ -13,13 +13,22 @@
   </div><!--end .score-->
 </div><!--end .score-container-->
 
-<h1 class="greeting"><%= session[:player_name] %>, let's play!</h1>
-
 <div class="dealer-container">
   <% session[:dealer_hand].each do |card| %>
     <%= card_image(card) %>
   <%end%>
 </div><!--end .dealer-container-->
+
+<div class="message">
+  <% if @message %>
+    <h1 class="animated slideInLeft"><%= @message %></h1>
+  <% else %>
+    <h1 class="greeting"><%= session[:player_name] %>, let's play!</h1>
+  <% end %>
+  
+
+</div><!--end .message-->
+
 
 <div class="player-container">
   <% if @initial_deal %>
@@ -53,12 +62,13 @@
   <% end %>
 </div><!--end .player-container-->
 <p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
-<p>What would you like to do?</p>
+
 <div class="button-container">
   <% if @show_buttons %>
-    <form method="post">
-      <button name="hit" value="hit" formaction="/game/player/hit">Hit</button>
-      <button name="stay" value="stay" formaction="/game/player/stay">Stay</button>
+    <p>What would you like to do?</p>
+    <form class="player-choice" method="post">
+      <button class="hit" name="hit" value="hit" formaction="/game/player/hit">Hit</button>
+      <button class="stay" name="stay" value="stay" formaction="/game/player/stay">Stay</button>
     </form>
   <% end %>
 </div><!--end .button-container-->

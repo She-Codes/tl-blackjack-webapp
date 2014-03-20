@@ -79,10 +79,10 @@ post '/game/player/hit' do
   
   if player_total == 21
     @show_buttons = false
-    @success = "You've got Blackjack!"
+    @message = "You've got Blackjack!"
   elsif player_total > 21
     @show_buttons = false
-    @error = "Sorry, looks like you busted."
+    @message = "Sorry, looks like you busted."
   
   end
   
@@ -91,7 +91,7 @@ end
 
 post '/game/player/stay' do
   @show_buttons = false
-  @success = "You've decided to stay"
+  @message = "You've decided to stay"
   # dealer turn
   # if get_total(session[:dealer_hand]) < 17
   #   deal_card(session[:dealer_hand], session[:deck])

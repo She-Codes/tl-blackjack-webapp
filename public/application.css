@@ -99,7 +99,7 @@ form.name button {
   width: 134px;
 }
 
-h1.greeting {
+.message h1 {
   text-align: center;
   text-transform: uppercase;
   font-size: 55px;
@@ -218,5 +218,16 @@ h1.greeting {
 
 .back {
   z-index: 2;
+}
+
+.total, .button-container p {
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #186D3C;
+  text-align: center;
+}
+
+.total {
+  font-weight: 700;
 }
 
