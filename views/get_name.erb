@@ -1,11 +1,13 @@
-<h1 class="welcome animated fadeInDown">Welcome to Nikia's</h1> 
-<h1 class="welcome bottom animated fadeInDown">Blackjack Emporium!</h1>
+<div class="wrapper <% if @problem then %>problem <% end %>">
+  <h1 class="welcome animated fadeInDown">Welcome to Nikia's</h1> 
+  <h1 class="welcome bottom animated fadeInDown">Blackjack Emporium!</h1>
 
-<p class="welcome animated fadeInLeft">Please enter your name</p>
+  <p class="welcome animated <% if @problem then %>shake<% else %> fadeInLeft <% end %>">Please enter your name</p>
 
-<form action="/get_name" method="post" class="form-inline name">
-<input type="text" name="player_name" autofocus="true">
-<button type="submit">Start Game</button>
-</form>
+  <form action="/get_name" method="post" class="form-inline name">
+  <input type="text" name="player_name" autofocus="true">
+  <button type="submit">Start Game</button>
+  </form>
 
-<div class="illustration animated fadeInUp"></div>
+  <div class="illustration animated fadeInUp"></div>
+</div><!--end .welcome-->

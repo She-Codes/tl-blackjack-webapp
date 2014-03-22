@@ -61,6 +61,14 @@ form.name button {
   border-radius: 4px;
 }
 
+.problem p.welcome {
+  color: #C0491B;
+}
+
+.problem input {
+  background: #FFD8D8;
+}
+
 .illustration {
   position: absolute;
   bottom: 0;
@@ -163,10 +171,22 @@ form.name button {
   color: #C24728;
 }
 
-.initial + .initial {
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  animation-delay: 1s;
+.dealer-container .initial:first-of-type {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.dealer-container .initial + .initial {
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+.player-container .initial + .initial {
+  -webkit-animation-delay: .8s;
+  -moz-animation-delay: .8s;
+  animation-delay: .8s;
 }
 
 .flip-container, .card-wrapper {

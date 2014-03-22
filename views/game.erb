@@ -3,18 +3,18 @@
   <div class="score">
     <div class="player">
       <div class="icon"></div>
-      <p><%= session[:player_name] %>:<span>0</span></p>
+      <p><%= session[:player_name] %>:<span><%= session[:player_score] %></span></p>
     </div><!--end .player-->
 
     <div class="dealer">
       <div class="icon"></div>
-      <p>Dealer:<span>0</span></p>
+      <p>Dealer:<span><%= session[:dealer_score] %></span></p>
     </div><!--end .player-->
   </div><!--end .score-->
 </div><!--end .score-container-->
 
 <div class="dealer-container">
-  <% if @initial_deal %>
+  <% if @turn == 'initial' %>
     <div class="card-wrapper animated slideInLeft initial">
       <img src="/images/cards/cover_yellow.svg" class="card">
     </div><!--end .card-wrapper-->
@@ -28,7 +28,14 @@
           </div><!--end .front-->
         </div><!--end .flipper-->
       </div><!--end .flip-container-->
-  <% else %>
+  <% elsif @turn == 'hit' %>
+    <div class="card-wrapper">
+      <img src="/images/cards/cover_yellow.svg" class="card">
+    </div><!--end .card-wrapper-->
+    <div class="card-wrapper">
+      <%= card_image(session[:dealer_hand][1]) %>
+    </div><!--end .card-wrapper-->
+  <% elsif @turn == 'stay' %>
     <div class="card-wrapper">
       <img src="/images/cards/cover_yellow.svg" class="card">
     </div><!--end .back-->
@@ -60,7 +67,7 @@
 
 
 <div class="player-container">
-  <% if @initial_deal %>
+  <% if @turn == 'initial' %>
     <% session[:player_hand].each do |card| %>
       <div class="flip-container initial animated slideInLeft">
         <div class="flipper">
@@ -73,7 +80,7 @@
         </div><!--end .flipper-->
       </div><!--end .flip-container-->
     <%end%>
-  <% else %>
+  <% elsif @turn == 'hit' %>
     <% number_of_cards_face_up = session[:player_hand].length - 1 %>
     <% session[:player_hand].slice(0, number_of_cards_face_up).each do |card| %>
       <div class="card-wrapper"><%= card_image(card) %></div>
@@ -88,6 +95,10 @@
         </div><!--end .front-->
       </div><!--end .flipper-->
     </div><!--end .flip-container-->
+  <% elsif @turn == 'stay' %>
+    <% session[:player_hand].each do |card| %>
+      <div class="card-wrapper"><%= card_image(card) %></div>
+    <% end %>
   <% end %>
 </div><!--end .player-container-->
 <p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
@@ -101,6 +112,9 @@
     </form>
   <% end %>
 </div><!--end .button-container-->
+
+<a href="/game" class="new">New Game</a>
+<a href="/get_name" class="start">Start Over</a>
 
 
 
