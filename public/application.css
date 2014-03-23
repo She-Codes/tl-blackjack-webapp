@@ -177,7 +177,8 @@ form.name button {
   animation-delay: 1.2s;
 }
 
-.dealer-container .initial + .initial {
+.dealer-container .initial + .initial,
+.dealer-container .delay + .delay {
   -webkit-animation-delay: 1.5s;
   -moz-animation-delay: 1.5s;
   animation-delay: 1.5s;
