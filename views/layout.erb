@@ -37,6 +37,7 @@
     $('.flip-container').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
         $(this).addClass('turn-over');
     });
+    $('.reveal').addClass('turn-over');
     // set a delay to give cards a chance to be dealt
     $('.total span').hide(0).delay(2600).show(0);
 

@@ -65,7 +65,7 @@ end
 get '/game' do
   @suits = ['hearts', 'clubs', 'diamonds', 'spades']
   @cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'jack', 'queen', 'king', 'ace']
-  @turn = 'initial'
+  @player_turn = 'initial'
   session[:deck] = @suits.product(@cards).shuffle!
   session[:player_hand] = []
   session[:dealer_hand] = []
@@ -74,11 +74,22 @@ get '/game' do
   initial_deal(session[:dealer_hand], session[:deck])
 
   player_total = get_total(session[:player_hand])
+  dealer_total = get_total(session[:dealer_hand])
   
   if player_total == 21
     @show_buttons = false
-    @message = "You've got Blackjack!"
+    @message = "#{session[:player_name]}, you've got Blackjack!"
+    @reveal = true
     session[:player_score] += 1
+  elsif dealer_total == 21
+    @show_buttons = false
+    @message = "Sorry #{session[:player_name]}, you lose - the dealer wins with Blackjack!"
+    @reveal = true
+    session[:dealer_score] += 1
+  elsif dealer_total == player_total
+    @show_buttons = false
+    @message = "Sorry #{session[:player_name]}, this hand is a draw - the dealer also had #{dealer_total} so nobody wins."
+    @reveal = true
   end
   
   erb :game
@@ -87,15 +98,17 @@ end
 post '/game/player/hit' do
   deal_card(session[:player_hand], session[:deck])
   player_total = get_total(session[:player_hand])
-  @turn = 'hit'
+  @player_turn = 'hit'
   
   if player_total == 21
     @show_buttons = false
     @message = "You've got Blackjack!"
+    @reveal = true
     session[:player_score] += 1
   elsif player_total > 21
     @show_buttons = false
     @message = "Sorry, looks like you busted."
+    @reveal = true
     session[:dealer_score] += 1
   end
   
@@ -105,18 +118,20 @@ end
 post '/game/player/stay' do
   @show_buttons = false
   @message = "You've decided to stay"
-  @turn = 'stay'
+  @player_turn = 'stay'
+  dealer_total = get_total(session[:dealer_hand])
   # dealer turn
-  if get_total(session[:dealer_hand]) < 17
+  if dealer_total < 17
     redirect '/game/dealer/hit'
+  elsif dealer_total > 17
+    redirect '/game/dealer/stay'
   end
-  
   erb :game
 end
 
 get '/game/dealer/hit' do
   dealer_total = get_total(session[:dealer_hand])
-  @turn = 'stay'
+  @player_turn = 'stay'
   while dealer_total < 17
     deal_card(session[:dealer_hand], session[:deck])
   end
@@ -124,9 +139,11 @@ get '/game/dealer/hit' do
   if dealer_total == 21
     @message = "Sorry #{session[:player_name]}, but the dealer hit Blackjack. Better luck next time!"
     session[:dealer_score] += 1
+    @reveal = true
   elsif dealer_total > 21
-    @message = "#{session[:player_name]}, you won! The dealer busted with #{dealer_total}!"
+    @message = "#{session[:player_name]}, you win! The dealer busted with #{dealer_total}!"
     session[:player_score] += 1
+    @reveal = true
   else
     #compare scores
     redirect '/game/dealer/stay'
@@ -137,6 +154,18 @@ end
 get '/game/dealer/stay' do
   dealer_total = get_total(session[:dealer_hand])
   player_total = get_total(session[:player_hand])
+  @reveal = true
+
+  if dealer_total > player_total
+    @message = "Sorry #{session[:player_name]}, the dealer wins with #{dealer_total}."
+    session[:dealer_score] += 1
+  elsif player_total > dealer_total
+    @message = "#{session[:player_name]}, you win! The dealer loses with #{dealer_total}."
+    @session[:player_score] += 1
+  elsif player_total == dealer_total
+    @message = "Sorry #{session[:player_name]}, the game is a draw, the dealer also had #{dealer_total} so nobody wins this hand."
+  end
+  erb :game
 end
 
 
