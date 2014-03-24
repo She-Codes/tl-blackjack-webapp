@@ -163,10 +163,14 @@
   <% end %>
 </div><!--end .button-container-->
 
-<a href="/game" class="new">New Game</a>
-<a href="/get_name" class="start">Start Over</a>
-<%= session[:dealer_hand] %>
-<%= get_total(session[:dealer_hand]) %>
+<div class="game-buttons">
+  <div>
+    <a href="/game" class="new">New Game</a>
+    <a href="/get_name" class="start">Start Over</a>
+  </div>
+</div><!--end .game-buttons-->
+<p><%= session[:dealer_hand] %></p>
+<p><%= get_total(session[:dealer_hand]) %></p>
 
 
 

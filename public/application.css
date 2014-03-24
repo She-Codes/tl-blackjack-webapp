@@ -192,6 +192,7 @@ form.name button {
 
 .flip-container, .card-wrapper {
   float: left;
+  margin-right: 4px;
 }
 
 .flip-container {
@@ -252,3 +253,43 @@ form.name button {
   font-weight: 700;
 }
 
+.player-choice {
+  width: 144px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.button-container button {
+  float: left;
+  position: relative;
+  padding: 10px 0;
+  width: 68px;
+  border: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color:  #fff;
+  text-decoration: none;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  outline: 0;
+}
+
+.button-container .hit {
+  background: #82BF56;
+  border-bottom: 5px solid #669644;
+  text-shadow: 0px -2px #669644;
+  margin-right: 8px;
+}
+
+.button-container .stay {
+  background: #E74C3C;
+  border-bottom: 5px solid #BD3E31;
+  text-shadow: 0px -2px #BD3E31;
+}
+
+.button-container button:active {
+  -webkit-transform: translate(0px, 5px);
+  -ms-transform: translate(0px, 5px);
+  transform: translate(0px, 5px);
+}
