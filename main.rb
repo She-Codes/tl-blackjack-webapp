@@ -56,9 +56,14 @@ post '/get_name' do
     @problem = true
     halt erb :get_name
   end
+
+  # params[:player_name].each_char do |c|
+
+  # end
   session[:player_name] = params[:player_name]
   session[:player_score] = 0
   session[:dealer_score] = 0
+  binding.pry
   redirect '/game'
 end
 
