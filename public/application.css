@@ -112,6 +112,8 @@ form.name button {
   text-transform: uppercase;
   font-size: 55px;
   font-weight: 200;
+  line-height: 96%;
+  padding: 10px 0;
 }
 
 .score-container {
@@ -292,4 +294,31 @@ form.name button {
   -webkit-transform: translate(0px, 5px);
   -ms-transform: translate(0px, 5px);
   transform: translate(0px, 5px);
+}
+
+.start {
+  left: 12px;
+}
+
+.new {
+  right: 12px;
+}
+
+.new, .start {
+  top: 5px;
+  position: absolute;
+  background: #3498DB;
+  padding: 9px 44px;
+  color: #fff;
+  display: block;
+  font-weight: 900;
+  float: left;
+  text-transform: uppercase;
+  margin-right: 27px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.new:hover, .start:hover {
+  text-decoration: none;
 }
