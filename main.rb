@@ -63,7 +63,7 @@ post '/get_name' do
   session[:player_name] = params[:player_name]
   session[:player_score] = 0
   session[:dealer_score] = 0
-  binding.pry
+
   redirect '/game'
 end
 
@@ -121,11 +121,44 @@ post '/game/player/hit' do
 end
 
 post '/game/player/stay' do
+  # @show_buttons = false
+  # @message = "You've decided to stay"
+  # @player_turn = 'stay'
+  # player_total = get_total(session[:player_hand])
+  
+  # while get_total(session[:dealer_hand]) < 17
+  #   deal_card(session[:dealer_hand], session[:deck])
+  #   @delay = true
+  # end
+
+  # dealer_total = get_total(session[:dealer_hand])
+  # if dealer_total == 21
+  #   @message = "Sorry #{session[:player_name]}, but the dealer hit Blackjack. Better luck next time!"
+  #   session[:dealer_score] += 1
+  # elsif dealer_total > 21
+  #   @message = "#{session[:player_name]}, you win! The dealer busted with #{dealer_total}!"
+  #   session[:player_score] += 1
+  # else
+  #   #compare scores
+  #   if dealer_total > player_total
+  #     @message = "Sorry #{session[:player_name]}, the dealer wins with #{dealer_total}."
+  #     session[:dealer_score] += 1
+  #   elsif player_total > dealer_total
+  #     @message = "#{session[:player_name]}, you win! The dealer loses with #{dealer_total}."
+  #     session[:player_score] += 1
+  #   elsif player_total == dealer_total
+  #     @message = "Sorry #{session[:player_name]}, the game is a draw, the dealer also had #{dealer_total} so nobody wins this hand."
+  #   end
+  # end
+  redirect '/game/dealer'
+end
+
+get '/game/dealer' do
   @show_buttons = false
   @message = "You've decided to stay"
   @player_turn = 'stay'
   player_total = get_total(session[:player_hand])
-  
+
   while get_total(session[:dealer_hand]) < 17
     deal_card(session[:dealer_hand], session[:deck])
     @delay = true
@@ -150,9 +183,9 @@ post '/game/player/stay' do
       @message = "Sorry #{session[:player_name]}, the game is a draw, the dealer also had #{dealer_total} so nobody wins this hand."
     end
   end
+
   erb :game
 end
-
 
 
 
