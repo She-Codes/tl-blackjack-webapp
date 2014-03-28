@@ -32,6 +32,21 @@ helpers do
     "<img src='/images/cards/#{card[0]}_#{card[1]}.svg' class='card'>"
   end
 
+  def winner!(msg)
+    @show_buttons = false
+    "#{session[:player_name]} wins! #{msg}"
+  end
+
+  def loser!(msg)
+    @show_buttons = false
+    "#{session[:player_name]} loses. #{msg}"
+  end
+
+  def tie!(msg)
+    @show_buttons = false
+    "Nobody wins - it's a draw."
+  end
+
 end
 
 before do 
@@ -57,10 +72,16 @@ post '/get_name' do
     halt erb :get_name
   end
 
-  # params[:player_name].each_char do |c|
-
-  # end
-  session[:player_name] = params[:player_name]
+  @legal_chars = []
+  "a".upto("z") {|c| @legal_chars << c}
+  params[:player_name].each_char do |c|
+    if !@legal_chars.include? c 
+      @problem = true
+      halt erb :get_name
+    end
+  end 
+  
+  session[:player_name] = params[:player_name].capitalize
   session[:player_score] = 0
   session[:dealer_score] = 0
 
