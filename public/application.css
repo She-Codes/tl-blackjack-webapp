@@ -79,6 +79,25 @@ form.name button {
   background: url('http://d13yacurqjgara.cloudfront.net/users/42865/screenshots/792030/queenofhearts.png') no-repeat top center;
 }
 
+.author-credit {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  display: block;
+  color: #fff;
+  letter-spacing: 1px;
+  font: 17px 'Pacifico', cursive;
+}
+
+.author-credit p {
+  line-height: 88%;
+}
+
+.author-credit:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 /*
 --- GAME PAGE
 */

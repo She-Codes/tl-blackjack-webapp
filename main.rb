@@ -4,6 +4,9 @@ require 'pry'
 
 set :sessions, true
 
+BLACKJACK_AMOUNT = 21
+DEALER_MIN_HIT = 17
+
 helpers do
   def get_total(hand)
     total = 0
@@ -34,17 +37,22 @@ helpers do
 
   def winner!(msg)
     @show_buttons = false
-    "#{session[:player_name]} wins! #{msg}"
+    @reveal = true
+    @message = "#{session[:player_name]} wins! #{msg}"
+    session[:player_score] += 1
   end
 
   def loser!(msg)
     @show_buttons = false
-    "#{session[:player_name]} loses. #{msg}"
+    @reveal = true
+    @message = "#{session[:player_name]} loses. #{msg}"
+    session[:dealer_score] += 1
   end
 
   def tie!(msg)
     @show_buttons = false
-    "Nobody wins - it's a draw."
+    @reveal = true
+    @message = "Nobody wins - it's a draw. #{msg}"
   end
 
 end
@@ -75,7 +83,7 @@ post '/get_name' do
   @legal_chars = []
   "a".upto("z") {|c| @legal_chars << c}
   params[:player_name].each_char do |c|
-    if !@legal_chars.include? c 
+    if !@legal_chars.include? c.downcase 
       @problem = true
       halt erb :get_name
     end
@@ -102,20 +110,12 @@ get '/game' do
   player_total = get_total(session[:player_hand])
   dealer_total = get_total(session[:dealer_hand])
   
-  if player_total == 21
-    @show_buttons = false
-    @message = "#{session[:player_name]}, you've got Blackjack!"
-    @reveal = true
-    session[:player_score] += 1
-  elsif dealer_total == 21
-    @show_buttons = false
-    @message = "Sorry #{session[:player_name]}, you lose - the dealer wins with Blackjack."
-    @reveal = true
-    session[:dealer_score] += 1
-  elsif dealer_total == player_total
-    @show_buttons = false
-    @message = "Sorry #{session[:player_name]}, this hand is a draw - the dealer also had #{dealer_total} so nobody wins."
-    @reveal = true
+  if player_total == BLACKJACK_AMOUNT
+    winner!("You've got Blackjack!")
+  elsif dealer_total == BLACKJACK_AMOUNT
+    loser!("Sorry, but the dealer wins with Blackjack.")
+  elsif dealer_total == BLACKJACK_AMOUNT && player_total == BLACKJACK_AMOUNT
+    tie!("The dealer also had #{dealer_total}.")
   end
   
   erb :game
@@ -126,16 +126,10 @@ post '/game/player/hit' do
   player_total = get_total(session[:player_hand])
   @player_turn = 'hit'
   
-  if player_total == 21
-    @show_buttons = false
-    @message = "You've got Blackjack!"
-    @reveal = true
-    session[:player_score] += 1
-  elsif player_total > 21
-    @show_buttons = false
-    @message = "Sorry, looks like you busted."
-    @reveal = true
-    session[:dealer_score] += 1
+  if player_total == BLACKJACK_AMOUNT
+    winner!("You've got Blackjack!")
+  elsif player_total > BLACKJACK_AMOUNT
+    loser!("Sorry, looks like you busted.")
   end
   
   erb :game
@@ -146,33 +140,30 @@ post '/game/player/stay' do
 end
 
 get '/game/dealer' do
-  @show_buttons = false
-  @message = "You've decided to stay"
   @player_turn = 'stay'
   player_total = get_total(session[:player_hand])
 
-  while get_total(session[:dealer_hand]) < 17
+  while get_total(session[:dealer_hand]) < DEALER_MIN_HIT
     deal_card(session[:dealer_hand], session[:deck])
-    @delay = true
+
+    # @delay still reveals dealer's first card but sets a delay
+    # if not set reveal class automatically set in template
+    @delay = true  
   end
 
   dealer_total = get_total(session[:dealer_hand])
-  if dealer_total == 21
-    @message = "Sorry #{session[:player_name]}, but the dealer hit Blackjack. Better luck next time!"
-    session[:dealer_score] += 1
-  elsif dealer_total > 21
-    @message = "#{session[:player_name]}, you win! The dealer busted with #{dealer_total}!"
-    session[:player_score] += 1
+  if dealer_total == BLACKJACK_AMOUNT
+    loser!("Sorry, but the dealer wins with Blackjack.")
+  elsif dealer_total > BLACKJACK_AMOUNT
+    winner!("The dealer busted with #{dealer_total}!")
   else
     #compare scores
     if dealer_total > player_total
-      @message = "Sorry #{session[:player_name]}, the dealer wins with #{dealer_total}."
-      session[:dealer_score] += 1
+      loser!("Sorry, but the dealer wins with #{dealer_total}.")
     elsif player_total > dealer_total
-      @message = "#{session[:player_name]}, you win! The dealer loses with #{dealer_total}."
-      session[:player_score] += 1
+      winner!("The dealer loses with #{dealer_total}!")
     elsif player_total == dealer_total
-      @message = "Sorry #{session[:player_name]}, the game is a draw, the dealer also had #{dealer_total} so nobody wins this hand."
+      tie!("The dealer also had #{dealer_total}.")
     end
   end
 
