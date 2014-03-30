@@ -16,13 +16,13 @@ payload
 using a form with a username input field that has 'bob' entered and the 'name' value set to 'username', and method set to POST.  For a GET request you can use a link or enter a url in the address bar with the "bob" "username" parameters as part of the url.
 
 5. Why is it important for us, as web developers, to understand that HTTP is a "stateless" protocol?
-Because we need to fake persistance.
+Because we need to fake persistance - pull certain values out of persistance layer.  We don't have a persistant connection with the user or with the browser to know what's going on.  That's why we have to keep checking to see that you are who you say - was the data tampered with....
 
 6. If the internet is just HTTP requests/responses, why do we only use browsers to interface with web applications? Are there any other options?
-Maybe because everybody has access to browsers and browsers are made to submit requests and return responses, but some other application could be used. 
+Maybe because everybody has access to browsers and browsers are made to submit requests and return responses, but some other application could be used like CURL etc. 
 
 7. What is MVC, and why is it important?
-Model View Controller is a common programming pattern that works well with web development.  When a request comes into the application the controller/action handles it.  Based on the request components the controller will go to the model layer and then render or redirect.
+Model View Controller is a common programming pattern that works well with web development.  These are 3 different layers.  When a request comes into the application the controller/action handles it.  Based on the request components the controller may go to the model layer and then render or redirect.  We don't write view code in models.  We cheat a little bit in Sinatra in that we do access the session in the views.
 
 Sinatra
 
@@ -30,13 +30,13 @@ Sinatra
 By the controller/action
 
 2. In the controller/action, what's the difference between rendering and redirecting?
-You can render text directly or render a template or you can redirect which issues another request and you need another action setup to handle it.
+You can render text directly or render a template (http code of 200) or you can redirect which issues another request and you need another action setup to handle it.
 
 3. In the ERB view template, how do you show dynamic content?
-Using instance variables, sessions, and helper variables to build logic in your templates.
+Using instance variables, sessions, and helper variables to build logic in your templates.  Show ruby code in templates using <%= %>
 
 4. Given what you know about ERB templates, when do you suppose the ERB template is turned into HTML?
-When it is rendered?
+On every request - so a huge template with a ton of conditional data it will take more time.  HAML and SLIM are templating languages that promise to be faster.
 
 5. What's the role of instance variables in Sinatra?
 We set up instance variables in the action and then they are available when a template is rendered.  This tricks the user into thinking that there is state.
