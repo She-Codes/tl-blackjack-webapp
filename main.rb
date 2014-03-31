@@ -40,6 +40,7 @@ helpers do
     @reveal = true
     @message = "#{session[:player_name]} wins! #{msg}"
     session[:player_score] += 1
+    session[:player_money] += session[:bet_amount]
   end
 
   def loser!(msg)
@@ -47,12 +48,14 @@ helpers do
     @reveal = true
     @message = "#{session[:player_name]} loses. #{msg}"
     session[:dealer_score] += 1
+    session[:player_money] -= session[:bet_amount]
   end
 
   def tie!(msg)
     @show_buttons = false
     @reveal = true
     @message = "Nobody wins - it's a draw. #{msg}"
+    session[:player_money] -= session[:bet_amount]
   end
 
 end
@@ -62,7 +65,6 @@ before do
 end
 
 get '/' do
-  # session.delete(:player_name)
   if session[:player_name]
     redirect '/game'
   else
@@ -92,6 +94,37 @@ post '/get_name' do
   session[:player_name] = params[:player_name].capitalize
   session[:player_score] = 0
   session[:dealer_score] = 0
+
+  redirect '/game'
+end
+
+get '/bet' do
+  session[:player_money] = 500
+  erb :bet_amount
+end
+
+post '/bet' do
+
+  if params[:bet_amount].empty?
+    @problem = true
+    halt erb :bet_amount
+  end
+
+  @legal_chars = []
+  "0".upto("9") {|n| @legal_chars << n}
+  params[:bet_amount].each_char do |n|
+    if !@legal_chars.include? n 
+      @problem = true
+      halt erb :bet_amount
+    end
+  end
+
+  if !(1..session[:player_money]).include? params[:bet_amount].to_i
+    @problem = true
+    halt erb :bet_amount
+  end
+
+  session[:bet_amount] = params[:bet_amount].to_i
 
   redirect '/game'
 end

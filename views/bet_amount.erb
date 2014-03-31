@@ -1,0 +1,10 @@
+<div class="wrapper bet <% if @problem then %>problem <% end %>">
+  <h2 class="animated <% if @problem then %>shake<% else %> pulse <% end %>">Please place your bet.</h2>
+  <p><%= session[:player_name] %> has <span>$<%= session[:player_money].to_s %></span> to bet.</p>
+  
+  <form action="/bet" method="post">
+  <input type="text" name="bet_amount" autofocus="true">
+  <button type="submit">Submit</button>
+  </form>
+
+</div><!--end .bet-->

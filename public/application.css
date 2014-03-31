@@ -98,6 +98,99 @@ form.name button {
   color: #fff;
 }
 
+/* 
+--- BET PAGE
+*/
+
+
+.bet h2, .bet p, .bet input {
+  font-weight: 200;
+}
+
+.bet h2 {
+  font-size: 55px;
+  padding-top: 65px;
+}
+
+.bet p {
+  font-size: 30px;
+  padding: 14px 0 9px;
+}
+
+.bet h2, .bet p {
+  text-align: center;
+}
+
+.bet form {
+  width: 316px;
+  margin: 0 auto;
+}
+
+.bet button, .bet input {
+  display: block;
+}
+
+.bet input {
+  border: 0;
+  box-shadow: none;
+  padding: 4px 8px;
+  font-size: 27px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  width: 300px;
+  height: 36px;
+}
+
+.bet ::-webkit-input-placeholder {
+  font-size: 20px;
+  padding-top: 4px;
+}
+
+.bet :-moz-placeholder {
+  font-size: 20px;
+  padding-top: 4px;
+}
+
+.bet ::-moz-placeholder {
+  font-size: 20px;
+  padding-top: 4px;
+}
+
+.bet :-ms-input-placeholder {
+  font-size: 20px;
+  padding-top: 4px;
+}
+
+.bet button {
+  background: #3084BD;
+  color: #fff;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  border: 0;
+  font-weight: 300;
+  font-size: 28px;
+  height: 62px;
+  text-transform: uppercase;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.bet button:hover, .bet button:active {
+  background: #fff;
+  color: #3084BD;
+}
+
+.bet span {
+  color: #3084BD;
+  font-weight: 400;
+}
+
+
 /*
 --- GAME PAGE
 */
@@ -238,6 +331,7 @@ form.name button {
 }
 
 .flipper {
+  -moz-transition: 0.6s;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   -webkit-transform-style: preserve-3d;
@@ -291,6 +385,7 @@ form.name button {
   border-radius: 10px;
   color:  #fff;
   text-decoration: none;
+  -moz-transition: all 0.1s;
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
   outline: 0;
