@@ -151,8 +151,10 @@
 <p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
 
 <div class="money">
-  <p><%= session[:player_name] %>'s Money: <span>$<%= session[:player_money].to_s %></span></p>
-  <p>Bet Amount <span>$<%= session[:bet_amount].to_s %></span></p>
+  <h3><%= session[:player_name] %>'s <span>Money:</span></h3>
+  <p>$<%= session[:player_money].to_s %></p>
+  <h3>Bet <span>Amount:</span></h3> 
+  <p>$<%= session[:bet_amount].to_s %></p>
 </div><!--end .money-->
 
 <div class="button-container">

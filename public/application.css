@@ -366,6 +366,7 @@ form.name button {
 
 .total {
   font-weight: 700;
+  padding: 30px 0;
 }
 
 .player-choice {
@@ -435,4 +436,38 @@ form.name button {
 
 .new:hover, .start:hover {
   text-decoration: none;
+}
+
+.money {
+  position: absolute;
+  right: 58px;
+  top: 24%;
+}
+
+.money h3 {
+  text-transform: uppercase;
+  color: #186D3C;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  padding: 26px 0 6px 12px;
+  line-height: 105%;
+}
+
+.money h3 span {
+  display: block;
+}
+
+.money p {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  background: #F0DA3A;
+  height: 90px;
+  width: 90px;
+  text-align: center;
+  margin: 0 auto;
+  color: #AC6E12;
+  font-size: 24px;
+  line-height: 90px;
 }

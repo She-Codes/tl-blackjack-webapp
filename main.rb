@@ -94,12 +94,12 @@ post '/get_name' do
   session[:player_name] = params[:player_name].capitalize
   session[:player_score] = 0
   session[:dealer_score] = 0
+  session[:player_money] = 500
 
-  redirect '/game'
+  redirect '/bet'
 end
 
 get '/bet' do
-  session[:player_money] = 500
   erb :bet_amount
 end
 
