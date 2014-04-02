@@ -1,93 +1,123 @@
-<div class="score-container">
-  <p>Games Won:</p>
-  <div class="score">
-    <div class="player">
-      <div class="icon"></div>
-      <p><%= session[:player_name] %>:<span><%= session[:player_score] %></span></p>
-    </div><!--end .player-->
+<div id="game">
+  <div class="score-container">
+    <p>Games Won:</p>
+    <div class="score">
+      <div class="player">
+        <div class="icon"></div>
+        <p><%= session[:player_name] %>:<span><%= session[:player_score] %></span></p>
+      </div><!--end .player-->
 
-    <div class="dealer">
-      <div class="icon"></div>
-      <p>Dealer:<span><%= session[:dealer_score] %></span></p>
-    </div><!--end .player-->
-  </div><!--end .score-->
-</div><!--end .score-container-->
+      <div class="dealer">
+        <div class="icon"></div>
+        <p>Dealer:<span><%= session[:dealer_score] %></span></p>
+      </div><!--end .player-->
+    </div><!--end .score-->
+  </div><!--end .score-container-->
 
-<div class="dealer-container">
-  <% if @player_turn == 'initial' %>
-    <% if @reveal %>
-      <div class="flip-container reveal">
-        <div class="flipper">
-          <div class="back">
-            <img src="/images/cards/cover_yellow.svg" class="card">
-          </div><!--end .back-->
-          <div class="front">
-            <%= card_image(session[:dealer_hand][0]) %>
-          </div><!--end .front-->
-        </div><!--end .flipper-->
-      </div><!--end .flip-container-->  
-      
-      <div class="card-wrapper">  
-        <%= card_image(session[:dealer_hand][1]) %>
-      </div><!--end .card-wrapper-->     
-       
-    <% else %>
-      <div class="card-wrapper animated slideInLeft initial">
-        <img src="/images/cards/cover_yellow.svg" class="card">
-      </div><!--end .card-wrapper-->
-      <div class="flip-container initial animated slideInLeft">
-        <div class="flipper">
-          <div class="back">
-            <img src="/images/cards/cover_yellow.svg" class="card">
-          </div><!--end .back-->
-          <div class="front">
-            <%= card_image(session[:dealer_hand][1]) %>
-          </div><!--end .front-->
-        </div><!--end .flipper-->
-      </div><!--end .flip-container-->
-    <% end %>
-  <% elsif @player_turn == 'hit' %>
-    <% if @reveal %>
-      <div class="flip-container reveal">
-        <div class="flipper">
-          <div class="back">
-            <img src="/images/cards/cover_yellow.svg" class="card">
-          </div><!--end .back-->
-          <div class="front">
-            <%= card_image(session[:dealer_hand][0]) %>
-          </div><!--end .front-->
-        </div><!--end .flipper-->
-      </div><!--end .flip-container-->  
-      <div class="card-wrapper">  
-        <%= card_image(session[:dealer_hand][1]) %>
-      </div><!--end .card-wrapper-->     
-    <% else %>
-      <div class="card-wrapper">
-        <img src="/images/cards/cover_yellow.svg" class="card">
-      </div><!--end .card-wrapper-->
-      <div class="card-wrapper">
-        <%= card_image(session[:dealer_hand][1]) %>
-      </div><!--end .card-wrapper-->
-    <% end %>
-  <% elsif @player_turn == 'stay' %>
-    <div class="flip-container <% if @delay then %>delay-reveal<% else %>reveal<% end %>">
-      <div class="flipper">
-        <div class="back">
+  <div class="dealer-container">
+    <% if @player_turn == 'initial' %>
+      <% if @reveal %>
+        <div class="flip-container reveal">
+          <div class="flipper">
+            <div class="back">
+              <img src="/images/cards/cover_yellow.svg" class="card">
+            </div><!--end .back-->
+            <div class="front">
+              <%= card_image(session[:dealer_hand][0]) %>
+            </div><!--end .front-->
+          </div><!--end .flipper-->
+        </div><!--end .flip-container-->  
+        
+        <div class="card-wrapper">  
+          <%= card_image(session[:dealer_hand][1]) %>
+        </div><!--end .card-wrapper-->     
+         
+      <% else %>
+        <div class="card-wrapper animated slideInLeft initial">
           <img src="/images/cards/cover_yellow.svg" class="card">
-        </div><!--end .back-->
-        <div class="front">
-          <%= card_image(session[:dealer_hand][0]) %>
-        </div><!--end .front-->
-      </div><!--end .flipper-->
-    </div><!--end .flip-container-->  
-   
-    <div class="card-wrapper">
-      <%= card_image(session[:dealer_hand][1]) %>
-    </div><!--end .card-wrapper-->
+        </div><!--end .card-wrapper-->
+        <div class="flip-container initial animated slideInLeft">
+          <div class="flipper">
+            <div class="back">
+              <img src="/images/cards/cover_yellow.svg" class="card">
+            </div><!--end .back-->
+            <div class="front">
+              <%= card_image(session[:dealer_hand][1]) %>
+            </div><!--end .front-->
+          </div><!--end .flipper-->
+        </div><!--end .flip-container-->
+      <% end %>
+    <% elsif @player_turn == 'hit' %>
+      <% if @reveal %>
+        <div class="flip-container reveal">
+          <div class="flipper">
+            <div class="back">
+              <img src="/images/cards/cover_yellow.svg" class="card">
+            </div><!--end .back-->
+            <div class="front">
+              <%= card_image(session[:dealer_hand][0]) %>
+            </div><!--end .front-->
+          </div><!--end .flipper-->
+        </div><!--end .flip-container-->  
+        <div class="card-wrapper">  
+          <%= card_image(session[:dealer_hand][1]) %>
+        </div><!--end .card-wrapper-->     
+      <% else %>
+        <div class="card-wrapper">
+          <img src="/images/cards/cover_yellow.svg" class="card">
+        </div><!--end .card-wrapper-->
+        <div class="card-wrapper">
+          <%= card_image(session[:dealer_hand][1]) %>
+        </div><!--end .card-wrapper-->
+      <% end %>
+    <% elsif @player_turn == 'stay' %>
+      <div class="flip-container <% if @delay then %>delay-reveal<% else %>reveal<% end %>">
+        <div class="flipper">
+          <div class="back">
+            <img src="/images/cards/cover_yellow.svg" class="card">
+          </div><!--end .back-->
+          <div class="front">
+            <%= card_image(session[:dealer_hand][0]) %>
+          </div><!--end .front-->
+        </div><!--end .flipper-->
+      </div><!--end .flip-container-->  
+     
+      <div class="card-wrapper">
+        <%= card_image(session[:dealer_hand][1]) %>
+      </div><!--end .card-wrapper-->
 
-    <% session[:dealer_hand].each_with_index do |card, i| %>
-      <% if i > 1 %>
-        <div class="flip-container animated slideInLeft delay">
+      <% session[:dealer_hand].each_with_index do |card, i| %>
+        <% if i > 1 %>
+          <div class="flip-container animated slideInLeft delay">
+            <div class="flipper">
+              <div class="back">
+                <img src="/images/cards/cover_yellow.svg" class="card">
+              </div><!--end .back-->
+              <div class="front">
+                <%= card_image(card) %>
+              </div><!--end .front-->
+            </div><!--end .flipper-->
+          </div><!--end .flip-container-->
+        <% end %>
+      <% end %>
+    <% end %>
+  </div><!--end .dealer-container-->
+
+  <div class="message">
+    <% if @message %>
+      <h1 class="animated fadeIn"><%= @message %></h1>
+    <% else %>
+      <h1 class="greeting"><%= session[:player_name] %>, let's play!</h1>
+    <% end %>
+    
+
+  </div><!--end .message-->
+
+
+  <div class="player-container">
+    <% if @player_turn == 'initial' %>
+      <% session[:player_hand].each do |card| %>
+        <div class="flip-container initial animated slideInLeft">
           <div class="flipper">
             <div class="back">
               <img src="/images/cards/cover_yellow.svg" class="card">
@@ -97,79 +127,50 @@
             </div><!--end .front-->
           </div><!--end .flipper-->
         </div><!--end .flip-container-->
+      <%end%>
+    <% elsif @player_turn == 'hit' %>
+      <% number_of_cards_face_up = session[:player_hand].length - 1 %>
+      <% session[:player_hand].slice(0, number_of_cards_face_up).each do |card| %>
+        <div class="card-wrapper"><%= card_image(card) %></div>
       <% end %>
-    <% end %>
-  <% end %>
-</div><!--end .dealer-container-->
-
-<div class="message">
-  <% if @message %>
-    <h1 class="animated fadeIn"><%= @message %></h1>
-  <% else %>
-    <h1 class="greeting"><%= session[:player_name] %>, let's play!</h1>
-  <% end %>
-  
-
-</div><!--end .message-->
-
-
-<div class="player-container">
-  <% if @player_turn == 'initial' %>
-    <% session[:player_hand].each do |card| %>
-      <div class="flip-container initial animated slideInLeft">
+      <div class="flip-container animated slideInLeft">
         <div class="flipper">
           <div class="back">
             <img src="/images/cards/cover_yellow.svg" class="card">
           </div><!--end .back-->
           <div class="front">
-            <%= card_image(card) %>
+            <%= card_image(session[:player_hand].last) %>
           </div><!--end .front-->
         </div><!--end .flipper-->
       </div><!--end .flip-container-->
-    <%end%>
-  <% elsif @player_turn == 'hit' %>
-    <% number_of_cards_face_up = session[:player_hand].length - 1 %>
-    <% session[:player_hand].slice(0, number_of_cards_face_up).each do |card| %>
-      <div class="card-wrapper"><%= card_image(card) %></div>
+    <% elsif @player_turn == 'stay' %>
+      <% session[:player_hand].each do |card| %>
+        <div class="card-wrapper"><%= card_image(card) %></div>
+      <% end %>
     <% end %>
-    <div class="flip-container animated slideInLeft">
-      <div class="flipper">
-        <div class="back">
-          <img src="/images/cards/cover_yellow.svg" class="card">
-        </div><!--end .back-->
-        <div class="front">
-          <%= card_image(session[:player_hand].last) %>
-        </div><!--end .front-->
-      </div><!--end .flipper-->
-    </div><!--end .flip-container-->
-  <% elsif @player_turn == 'stay' %>
-    <% session[:player_hand].each do |card| %>
-      <div class="card-wrapper"><%= card_image(card) %></div>
+  </div><!--end .player-container-->
+  <p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
+
+  <div class="money">
+    <h3><%= session[:player_name] %>'s <span>Money:</span></h3>
+    <p>$<%= session[:player_money].to_s %></p>
+    <h3>Bet <span>Amount:</span></h3> 
+    <p>$<%= session[:bet_amount].to_s %></p>
+  </div><!--end .money-->
+
+  <div class="button-container">
+    <% if @show_buttons %>
+      <p>What would you like to do?</p>
+      <form class="player-choice" method="post">
+        <button class="hit" name="hit" value="hit" formaction="/game/player/hit">Hit</button>
+        <button class="stay" name="stay" value="stay" formaction="/game/player/stay">Stay</button>
+      </form>
     <% end %>
-  <% end %>
-</div><!--end .player-container-->
-<p class="total"><%= session[:player_name] %>, your total is: <span><%= get_total(session[:player_hand]) %></span></p> 
+  </div><!--end .button-container-->
 
-<div class="money">
-  <h3><%= session[:player_name] %>'s <span>Money:</span></h3>
-  <p>$<%= session[:player_money].to_s %></p>
-  <h3>Bet <span>Amount:</span></h3> 
-  <p>$<%= session[:bet_amount].to_s %></p>
-</div><!--end .money-->
-
-<div class="button-container">
-  <% if @show_buttons %>
-    <p>What would you like to do?</p>
-    <form class="player-choice" method="post">
-      <button class="hit" name="hit" value="hit" formaction="/game/player/hit">Hit</button>
-      <button class="stay" name="stay" value="stay" formaction="/game/player/stay">Stay</button>
-    </form>
-  <% end %>
-</div><!--end .button-container-->
-
-<a href="/get_name" class="start">Start Over</a>
-<a href="/bet" class="new">Play Again</a>
-
+  <a href="/get_name" class="start">Start Over</a>
+  <% if !hide_play_again then %><a href="/bet" class="new">Play Again</a> <% end %>
+</div><!--end #game-->
 
 
 

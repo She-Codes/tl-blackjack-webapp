@@ -35,6 +35,12 @@ helpers do
     "<img src='/images/cards/#{card[0]}_#{card[1]}.svg' class='card'>"
   end
 
+  def hide_play_again
+    if session[:player_money] == 0
+      return true
+    end
+  end
+
   def winner!(msg)
     @show_buttons = false
     @reveal = true
@@ -49,6 +55,7 @@ helpers do
     @message = "#{session[:player_name]} loses. #{msg}"
     session[:dealer_score] += 1
     session[:player_money] -= session[:bet_amount]
+    hide_play_again
   end
 
   def tie!(msg)
@@ -56,6 +63,7 @@ helpers do
     @reveal = true
     @message = "Nobody wins - it's a draw. #{msg}"
     session[:player_money] -= session[:bet_amount]
+    hide_play_again
   end
 
 end
@@ -165,7 +173,7 @@ post '/game/player/hit' do
     loser!("Sorry, looks like you busted.")
   end
   
-  erb :game
+  erb :game, layout: false
 end
 
 post '/game/player/stay' do
@@ -192,7 +200,7 @@ get '/game/dealer' do
   else
     #compare scores
     if dealer_total > player_total
-      loser!("Sorry, but the dealer wins with #{dealer_total}.")
+      loser!("Sorry, the dealer wins with #{dealer_total}.")
     elsif player_total > dealer_total
       winner!("The dealer loses with #{dealer_total}!")
     elsif player_total == dealer_total

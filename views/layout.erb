@@ -31,24 +31,7 @@
     <%= yield %>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script>
-  $(document).ready(function(){
-    // flip cards over
-    $('.flip-container.animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-        $(this).addClass('turn-over');
-    });
+  <script src="/scripts/application.js"></script>
 
-    setTimeout(function(){
-      $('.delay-reveal').addClass('turn-over');
-    }, 2500);
-    
-   
-    $('.reveal').addClass('turn-over');
-
-    // set a delay to give cards a chance to be dealt
-    $('.total span').hide(0).delay(2600).show(0);
-
-  });
-  </script>
   </body>
 </html>
