@@ -81,7 +81,6 @@ get '/' do
 end
 
 get '/get_name' do
-  session[:player_name] = nil
   erb :get_name
 end
 
