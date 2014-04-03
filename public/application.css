@@ -207,9 +207,9 @@ form.name button {
   border-radius: 15px;
 }
 
-/*.player-container, .dealer-container {
-  overflow: auto;
-}*/
+.player-container, .dealer-container {
+  overflow: hidden;
+}
 
 .dealer-container .card {
   width: 100px;
@@ -239,9 +239,9 @@ form.name button {
   text-align: center;
 }
 
-/*.score {
-  overflow: auto;
-}*/
+.score {
+  overflow: hidden;
+}
 
 .score div {
   float: left;
