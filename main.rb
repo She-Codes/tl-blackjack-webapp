@@ -6,6 +6,7 @@ set :sessions, true
 
 BLACKJACK_AMOUNT = 21
 DEALER_MIN_HIT = 17
+INITIAL_BET_AMOUNT = 500
 
 helpers do
   def get_total(hand)
@@ -62,7 +63,6 @@ helpers do
     @show_buttons = false
     @reveal = true
     @message = "Nobody wins - it's a draw. #{msg}"
-    session[:player_money] -= session[:bet_amount]
     hide_play_again
   end
 
@@ -102,39 +102,28 @@ post '/get_name' do
   session[:player_name] = params[:player_name].capitalize
   session[:player_score] = 0
   session[:dealer_score] = 0
-  session[:player_money] = 500
+  session[:player_money] = INITIAL_BET_AMOUNT
 
   redirect '/bet'
 end
 
 get '/bet' do
+  session[:bet_amount] = nil
   erb :bet_amount
 end
 
 post '/bet' do
 
-  if params[:bet_amount].empty?
+  if params[:bet_amount].empty? || params[:bet_amount].to_i == 0
     @problem = true
     halt erb :bet_amount
-  end
-
-  @legal_chars = []
-  "0".upto("9") {|n| @legal_chars << n}
-  params[:bet_amount].each_char do |n|
-    if !@legal_chars.include? n 
-      @problem = true
-      halt erb :bet_amount
-    end
-  end
-
-  if !(1..session[:player_money]).include? params[:bet_amount].to_i
+  elsif params[:bet_amount].to_i > session[:player_money]
     @problem = true
     halt erb :bet_amount
+  else
+    session[:bet_amount] = params[:bet_amount].to_i
+    redirect '/game'
   end
-
-  session[:bet_amount] = params[:bet_amount].to_i
-
-  redirect '/game'
 end
 
 get '/game' do
